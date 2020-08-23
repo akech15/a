@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Switch} from 'react-router-dom'
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import HomePage from "./pages/HomePage";
+import EntryPage from "./pages/EntryPage";
+import TurnOnOff from "./pages/TurnOnOf";
+import GreenHouseInfo from "./pages/GreenHouseInfo";
+import ChangeInformation from "./pages/ChangeInformation";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	return (
+		<Switch>
+			<Route path="/register">
+				<Register/>
+			</Route>
+			<Route path="/login">
+				<Login/>
+			</Route>
+			<Route path="/home-page">
+				<HomePage/>
+			</Route>
+			<Route path="/turn-on-off">
+				<TurnOnOff/>
+			</Route>
+			<Route path="/green-house-info">
+				<GreenHouseInfo/>
+			</Route>
+			<Route path="/green-house-change">
+				<ChangeInformation/>
+			</Route>
+			<Route path="/" exact>
+				<EntryPage/>
+			</Route>
+		</Switch>
+
+	);
 }
 
 export default App;
